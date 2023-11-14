@@ -27,7 +27,7 @@
             <ul>
               <li><a href="Home">Trang chủ</a></li>
               <li class="drop">
-                <a href="product" class="dropbtn">Sản phẩm</a>
+                <a href="productController" class="dropbtn">Sản phẩm</a>
                 <div class="drop-content">
                   <a href="#">Sản phẩm 1</a>
                   <a href="#">Sản phẩm 2</a>
