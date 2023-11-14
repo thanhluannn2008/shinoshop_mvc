@@ -10,7 +10,8 @@ class Home extends Controller
     {
         $teo = $this->model("cartegoryModel");
         $this->view("trangchu", [
-            "cartegory" => $teo->show_cartegory()
+            "cartegory" => $teo->show_cartegory(),
+            "Page" => "slider"
         ]);
 
     }
