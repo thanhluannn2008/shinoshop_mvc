@@ -1,13 +1,21 @@
 <?php
-class Controller{
+class Controller
+{
 
-    public function model($model){
-        require_once "./mvc/models/".$model.".php";
+    public function model($model)
+    {
+        require_once "./mvc/models/" . $model . ".php";
         return new $model;
     }
 
-    public function view($view, $data=[]){
-        require_once "./mvc/views/".$view.".php";
+    public function view($view, $data = [])
+    {
+        require_once "./mvc/views/" . $view . ".php";
+    }
+
+    public function lib($lib)
+    {
+        require_once "./mvc/lib/" . $lib . ".php";
     }
 
 }

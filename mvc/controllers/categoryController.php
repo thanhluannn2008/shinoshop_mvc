@@ -1,5 +1,5 @@
 <?php
-class productController extends Controller
+class categoryController extends Controller
 {
 
     // Must have SayHi()
@@ -8,11 +8,6 @@ class productController extends Controller
         $teo = $this->model("cartegoryModel");
         $this->view("trangchu", [
             "cartegory" => $teo->show_cartegory(),
-            "Page" => "productView"
-        ]);
-
-        $this->view("trangchu", [
-            "product" => $teo->show_product(),
             "Page" => "productView"
         ]);
 
