@@ -1,7 +1,3 @@
-<?php
-session::init();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +24,7 @@ session::init();
   include "inc/footer.php";
   ?>
 </body>
-<script src="./public/js/slider.js"></script>
-<script src="./public/js/script.js"></script>
-<script src="./public/js/product.js"></script>
+<script src="/mvc-project/public/js/slider.js"></script>
+<script src="/mvc-project/public/js/script.js"></script>
+<script src="/mvc-project/public/js/product.js"></script>
 </html>

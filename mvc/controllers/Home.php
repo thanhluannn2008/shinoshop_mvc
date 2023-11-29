@@ -8,9 +8,9 @@ class Home extends Controller
     // Must have SayHi()
     function SayHi()
     {
-        $teo = $this->model("cartegoryModel");
+        $teo = $this->model("categoryModel");
         $this->view("trangchu", [
-            "cartegory" => $teo->show_cartegory(),
+            "category" => $teo->show_category(),
             "Page" => "slider"
         ]);
 

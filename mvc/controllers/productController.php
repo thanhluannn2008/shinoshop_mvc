@@ -1,19 +1,30 @@
 <?php
 class productController extends Controller
 {
+    public $product;
+    public $cat;
 
-    // Must have SayHi()
-    function SayHi()
-    {
-        $teo = $this->model("cartegoryModel");
-        $this->view("trangchu", [
-            "cartegory" => $teo->show_cartegory(),
-            "Page" => "productView"
+    function __construct(){
+        $this->product = $this->model("productModel");
+        $this->cat = $this -> model("categoryModel");
+    }
+
+    function SayHi(){
+        $this->view("productView",[
+            "category"=>$this->cat->show_category(),
+            "Page"=>"productViewList"
         ]);
+    }
 
-        $this->view("trangchu", [
-            "product" => $teo->show_product(),
-            "Page" => "productView"
+    public function show_product($product_id){
+        //$product_id = $_GET["product_id"];
+
+        $getproduct = $this->product->get_product($product_id);
+
+        $this->view("productView",[
+            "category"=>$this->cat->show_category(),
+            "getproduct"=>$getproduct,
+            "Page"=>"productViewList"
         ]);
 
     }

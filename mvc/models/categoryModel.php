@@ -1,7 +1,7 @@
 <?php
-class cartegoryModel extends DB
+class categoryModel extends DB
 {
-    public function show_cartegory()
+    public function show_category()
     {
         $qr = "SELECT * FROM tbl_cartegory";
         return mysqli_query($this->con, $qr);
