@@ -6,11 +6,17 @@ class Home extends Controller
 {
 
     // Must have SayHi()
+    public $cat;
+    public $brand;
+
+   
     function SayHi()
     {
-        $teo = $this->model("categoryModel");
+        $this->cat = $this->model("categoryModel");
+        $this->brand = $this->model("brandModel");
         $this->view("trangchu", [
-            "category" => $teo->show_category(),
+            "category" => $this->cat->show_category(),
+            "brand"=> $this->brand->showBrand(),
             "Page" => "slider"
         ]);
 

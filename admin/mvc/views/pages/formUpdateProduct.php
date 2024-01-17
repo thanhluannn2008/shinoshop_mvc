@@ -3,48 +3,6 @@ include "./mvc/views/inc/header.php";
 include "./mvc/views/inc/sidebar.php";
 ?>
 
-<script>
-
-function readURL(input, thumbimage) {
-  if (input.files && input.files[0]) { //Sử dụng  cho Firefox - chrome
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      $("#thumbimage").attr('src', e.target.result);
-    }
-    reader.readAsDataURL(input.files[0]);
-  }
-  else { // Sử dụng cho IE
-    $("#thumbimage").attr('src', input.value);
-
-  }
-  $("#thumbimage").show();
-  $('.filename').text($("#uploadfile").val());
-  $('.Choicefile').css('background', '#14142B');
-  $('.Choicefile').css('cursor', 'default');
-  $(".removeimg").show();
-  $(".Choicefile").unbind('click');
-
-}
-$(document).ready(function () {
-  $(".Choicefile").bind('click', function () {
-    $("#uploadfile").click();
-
-  });
-  $(".removeimg").click(function () {
-    $("#thumbimage").attr('src', '').hide();
-    $("#myfileupload").html('<input type="file" id="uploadfile"  onchange="readURL(this);" />');
-    $(".removeimg").hide();
-    $(".Choicefile").bind('click', function () {
-      $("#uploadfile").click();
-    });
-    $('.Choicefile').css('background', '#14142B');
-    $('.Choicefile').css('cursor', 'pointer');
-    $(".filename").text("");
-  });
-})
-</script>
-</head>
-
 <body class="app sidebar-mini rtl">
 <style>
 
@@ -119,8 +77,8 @@ $(document).ready(function () {
             <input class="form-control" type="number" name="">
           </div> -->
           <?php
-        //   if(isset($data["getProduct"])){
-             while($row2 = mysqli_fetch_array($data["product"])){
+           if(isset($data["getProduct"])){
+             while($row2 = mysqli_fetch_array($data["getProduct"])){
           ?>
           <div class="form-group col-md-3">
             <label class="control-label">Tên sản phẩm</label>
@@ -130,6 +88,7 @@ $(document).ready(function () {
             <label class="control-label">Số lượng</label>
             <input class="form-control" type="number" name="product_quantity" value="<?php echo $row2["product_quantity"]?>">
           </div>
+
           <div class="form-group col-md-3 ">
             <label for="exampleSelect1" class="control-label">Tình trạng</label>
             <select class="form-control" id="exampleSelect1" name="product_status">
@@ -168,7 +127,6 @@ $(document).ready(function () {
                     ?>
             </select>
           </div>
-
           <div class="form-group col-md-3">
             <label class="control-label">Giá bán</label>
             <input class="form-control" type="text" name="product_price" value="<?php echo $row2["product_price"]?>">
@@ -190,7 +148,7 @@ $(document).ready(function () {
           <input type="hidden" value="<?php echo $row2["product_id"];?>" name="product_id">
           <?php
              }
-        //   }
+             }
           ?>
         <button class="btn btn-save m-1" type="submit" name="btnUpdateProduct">Lưu lại</button>
         <a class="btn btn-cancel m-1" href="/admin/productUpdateController">Hủy bỏ</a>

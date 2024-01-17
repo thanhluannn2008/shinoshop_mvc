@@ -50,7 +50,7 @@ public function update_cat(){
 
         $this->updateCat->updateCategory($category_id, $category_name);
 
-        header("Location: /admin/categoryController");
+        header("Location: /mvc-project/admin/categoryController");
 
     }
 }

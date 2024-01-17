@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="././public/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/mvc-project/admin/public/css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
@@ -46,7 +46,7 @@
       <ul class="app-nav">
         <!-- User Menu-->
         <li>
-          <a class="app-nav__item" href="/index.html"
+          <a class="app-nav__item" href="/mvc-project/home"
             ><i class="bx bx-log-out bx-rotate-180"></i>
           </a>
         </li>

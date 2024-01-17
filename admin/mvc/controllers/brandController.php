@@ -34,7 +34,7 @@ class brandController extends Controller{
         $brandIdToDelete = $_POST['brand_id'];
         $this->deletebrand->deleteBrand($brandIdToDelete);
         //hiện giao diện
-        header("Location: /admin/brandController");
+        header("Location: /mvc-project/admin/brandController");
         // $this->view("brandView",[
         //     "brand"=>$this->brand->getBrand()
         // ]);

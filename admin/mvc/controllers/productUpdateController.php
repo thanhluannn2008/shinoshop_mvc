@@ -20,12 +20,12 @@ class ProductUpdateController extends Controller{
     function SayHi(){
         $id = $_POST["product_id"];
         $this->view("productView",[
-            "product"=>$this->product->showProduct(),
             "catt"=>$this->cat->getCategory(),
             "brand"=>$this->brand->getBrand(),
             "getProduct"=>$this->getProduct->getProduct($id),
             "Page"=>"formUpdateProduct"
         ]);
+        echo $id;
     }
 
     public function update_product(){
@@ -71,7 +71,7 @@ class ProductUpdateController extends Controller{
     //    echo print_r($_POST);
     //    echo '</pre>';
               $this->updateProduct->updateProduct($id, $product_name, $category_id, $brand_id, $product_price, $product_capital_price, $mota, $product_quantity, $product_img);
-              header("Location: /admin/productController");
+              header("Location: /mvc-project/admin/productController");
         }
     }
 

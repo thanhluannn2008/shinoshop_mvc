@@ -35,7 +35,7 @@ public function insert_brand(){
 
          $this->insertBrand->insertBrand($category_id,$brandName) ;
 
-        header("Location: /admin/brandController");
+        header("Location: /mvc-project/admin/brandController");
 
     }
 

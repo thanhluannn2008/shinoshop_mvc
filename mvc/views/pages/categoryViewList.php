@@ -1,10 +1,4 @@
-<?php
-$search = isset($_GET['tukhoa']) ? $_GET['tukhoa'] : "";
-if ($search) {
-    $where = "WHERE product_name LIKE '%" . $search . "%'";
-}
 
-?>
 <!------------------------------------------ cartergory -------------------------------- ---------------------------------->
 <section class="cartergory">
     <div class="container">
@@ -54,15 +48,13 @@ if ($search) {
                 <div class="cartergory-right-content row">
 
                     <?php
-                    if ($search) {
-                        $product = $pd->get_producByname($search);
-                        if ($product) {
-                            while ($result = $product->fetch_assoc()) {
+                    if (isset($data["get_product_search"])) {
+                            while ($result = mysqli_fetch_array($data["get_product_search"])) {
 
                                 ?>
                                 <div class="cartergory-right-content-items">
                                     <a href="">
-                                        <form action="/productController/show_product" method="post">
+                                        <form action="productController/show_product" method="post">
                                             <input type="hidden" name="product_id" value="<?php echo $row["product_id"]?>">
                                         <img src="/admin/public/upload/<?php echo $result['product_img']; ?>" alt="">
                                         <h1>
@@ -76,7 +68,6 @@ if ($search) {
                                 </div>
                                 <?php
                             }
-                        }
                     } else {
                         if (isset($data["product"])) {
                             while ($row = mysqli_fetch_array($data["product"])) {
@@ -84,7 +75,7 @@ if ($search) {
                                 ?>
                                 <div class="cartergory-right-content-items">
                                     <a href="productController/show_product/<?php echo $row["product_id"]?>">
-                                        <img src="/admin/public/upload/<?php echo $row['product_img']; ?>" alt="">
+                                        <img src="/mvc-project/admin/public/upload/<?php echo $row['product_img']; ?>" alt="">
                                         <h1>
                                             <?php echo $row['product_name']; ?>
                                         </h1>

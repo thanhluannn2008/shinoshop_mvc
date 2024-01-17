@@ -23,6 +23,7 @@ class productController extends Controller
 
         $this->view("productView",[
             "category"=>$this->cat->show_category(),
+            "product"=>$this->product->show_product(),
             "getproduct"=>$getproduct,
             "Page"=>"productViewList"
         ]);

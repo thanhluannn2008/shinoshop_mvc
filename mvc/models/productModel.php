@@ -8,43 +8,17 @@ class productModel extends DB
     //     return mysqli_query($this->con, $result);
     // }
 
-    public function show_brand(){
-        // $query = "SELECT * FROM tbl_brand ORDER BY brand_id DESC";
-         $query = "SELECT tbl_brand. *, tbl_cartegory.cartegory_name
-         FROM tbl_brand INNER JOIN tbl_cartegory ON tbl_brand.cartegory_id = tbl_cartegory.cartegory_id
-         ORDER BY tbl_brand.brand_id DESC";
-         $result = $this -> db -> select($query);
-         return $result;
-     }
 
      public function show_product(){
-        // $query = "SELECT *
-        //     FROM tbl_product
-        //     INNER JOIN tbl_cartegory
-        //     ON tbl_product.cartegory_id = tbl_cartegory.cartegory_id
-        //     INNER JOIN tbl_brand
-        //     ON tbl_cartegory.cartegory_id = tbl_brand.brand_id
-        //     ORDER BY product_id DESC";
-        $query = "SELECT * FROM tbl_product";
-                // $result = $this -> db -> select($query);
-                // return mysqli_query($this->con, $query);
-                $result = $this->db->query($query);
-
-                $products = array();
-                while ($row = $result->fetch_assoc()) {
-                    $products[] = $row;
-                }
-        
-                return $products;
+        $qr = "SELECT * from tbl_product as pd
+        inner join tbl_brand as br
+        on pd.brand_id= br.brand_id
+        inner join tbl_cartegory as cat
+        on cat.cartegory_id = br.cartegory_id
+        order by pd.product_id desc";
+        return mysqli_query($this->con, $qr);
      }
 
-     
-    public function delete_product($product_id){
-        $query = "DELETE FROM tbl_product WHERE product_id = '$product_id'";
-        $result = $this -> db -> delete($query);
-        header('Location:product_list.php');
-        return $result;
-    }
 
     public function get_product($product_id){
         $query = "SELECT * FROM tbl_product WHERE product_id = '$product_id'";
@@ -54,16 +28,26 @@ class productModel extends DB
         $query = "SELECT * FROM tbl_product";
         return mysqli_query($this->con, $query);
     }
+
+    public function get_producByname($product_name)
+{
+    $query = "SELECT * FROM tbl_product WHERE product_name LIKE '%" . $product_name . "%'";
+    return mysqli_query($this->con, $query);
+ }
+
+
+    public function get_outstanding_products(){
+        $qr = "SELECT * FROM tbl_product WHERE cartegory_id = '7'";
+        return mysqli_query($this->con, $qr);
+    }
     public function get_productFEfemale(){
-        $query = "SELECT * FROM tbl_product WHERE cartegory_id = '6'";
-        $result = $this -> db -> select($query);
-        return $result;
+        $qr = "SELECT * FROM tbl_product WHERE cartegory_id = '10'";
+        return mysqli_query($this->con, $qr);
     }
 
     public function get_productFEMale(){
-        $query = "SELECT * FROM tbl_product WHERE cartegory_id = '5'";
-        $result = $this -> db -> select($query);
-        return $result;
+        $qr = "SELECT * FROM tbl_product WHERE cartegory_id = '9'";
+        return mysqli_query($this->con, $qr);
     }
 
         public function get_producById($id)
@@ -195,12 +179,7 @@ public function insert_product()
     }
 }
 
-public function get_producByname($product_name)
-{
-    $query = "SELECT * FROM tbl_product WHERE product_name LIKE '%" . $product_name . "%'";
-    $result = $this->db->select($query);
-    return $result;
- }
+
 
 
     public function get_cartegory($cartegory_id){

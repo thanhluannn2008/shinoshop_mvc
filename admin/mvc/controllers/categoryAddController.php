@@ -29,7 +29,7 @@ public function insert_cat(){
 
         $this->insertCat->insertCategory($categoryName);
 
-        header("Location: /admin/categoryAddController");
+        header("Location: /mvc-project/admin/categoryAddController");
 
     }
 

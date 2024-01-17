@@ -44,7 +44,7 @@ public function update_brand(){
         // echo $category_id;
         // echo $brandID;
 
-        header("Location: /admin/brandController");
+        header("Location: /mvc-project/admin/brandController");
 
     }
 

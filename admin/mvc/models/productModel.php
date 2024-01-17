@@ -15,13 +15,7 @@ class ProductModel extends DB {
     public function getProduct($id)
     {
         $qr = "SELECT * FROM tbl_product WHERE product_id = '$id'";
-        $result = false;
-
-        if (mysqli_query($this->con, $qr )) {
-            $result=  true; // Xóa thất bại
-        } else {
-            return  json_encode($result);// Xóa thành công
-        }
+        return mysqli_query($this->con, $qr);
      }
 
     public function deleteProduct($product_id){

@@ -48,7 +48,7 @@ public function delete_cat(){
         $catIdToDelete = $_POST['category_id'];
         $this->deleteCat->deleteCat($catIdToDelete);
         //hiện giao diện
-        header("Location: /admin/categoryController");
+        header("Location: /mvc-project/admin/categoryController");
         // $this->view("brandView",[
         //     "brand"=>$this->brand->getBrand()
         // ]);

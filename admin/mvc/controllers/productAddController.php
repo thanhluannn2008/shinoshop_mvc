@@ -64,7 +64,7 @@ class ProductAddController extends Controller{
     //    echo print_r($_POST);
     //    echo '</pre>';
             $this->insertProduct->insertProduct($product_name, $category_id, $brand_id, $product_price, $product_capital_price, $mota, $product_quantity, $product_img);
-            header("Location: /admin/productController");
+            header("Location: /mvc-project/admin/productController");
         }
     }
 

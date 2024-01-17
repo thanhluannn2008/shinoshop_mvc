@@ -14,7 +14,7 @@
         <div class="product-content row">
             <div class="product-content-left row">
                 <div class="product-content-left-big-img">
-                    <img src="/admin/public/upload/<?php echo $result['product_img']; ?>" alt="">
+                    <img src="/mvc-project/admin/public/upload/<?php echo $result['product_img']; ?>" alt="">
 
                 </div>
             </div>
@@ -34,7 +34,7 @@
                             <!-- <div class="size">
                         <span>10ml</span> <span>30ml</span> <span>60ml</span> <span>100ml</span> <span>200ml</span>
                     </div> -->
-                            <form action="" method="POST">
+                            <form action="/mvc-project/cartController/add_to_cart/<?php echo $result["product_id"]?>" method="POST">
                                 <div class="quantity">
                                     <p style="font-weight: bold;">Số lượng:</p>
                                     <input type="number" min="1" value="1" name="quantity">
@@ -44,14 +44,14 @@
                                 
 
                                 <div class="product-content-right-proButton row">
-                                    <!-- <button class="buy" type="submit">
-                                        <a href="cart.php">
-                                            <i class="fa-solid fa-cart-arrow-down"></i>
-                                            <p>THÊM VÀO GIỎ HÀNG</p>
-                                        </a>
-                                    </button> -->
+                                    <a href="/mvc-project/cartController">
+                                        <button class="buy" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                                <p>THÊM VÀO GIỎ HÀNG</p>
+                                        </button>
+                                    </a>
 
-                                    <input class="buy" type="submit" value="THÊM VÀO GIỎ HÀNG" />
+                                    <!-- <input class="buy" type="submit" value="THÊM VÀO GIỎ HÀNG" /> -->
                                     <!-- <p>THÊM VÀO GIỎ HÀNG</p> -->
 
                                     <button class="search_in_store">
@@ -104,12 +104,12 @@
     </div>
     <div class="product-related-content row">
         <?php
-        if (isset($data["getproduct"])) {
-            while ($result = mysqli_fetch_array($data["getproduct"])) {
+        if (isset($data["product"])) {
+            while ($result = mysqli_fetch_array($data["product"])) {
 
                 ?>
                 <div class="cartergory-right-content-items">
-                    <a href="productController/show_product/<?php echo $result['product_id']; ?> ">
+                    <a href="/mvc-project/productController/show_product/<?php echo $result['product_id']; ?> ">
                         <img src="/admin/public/upload/<?php echo $result['product_img']; ?>" alt="">
                         <h1>
                             <?php echo $result['product_name']; ?>
